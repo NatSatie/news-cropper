@@ -9,8 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.1.4",
+    "konva": "^10.2.0",
+    "next": "^16.1.6",
     "react": "19.2.3",
+    "react-aria-components": "^1.14.0",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
