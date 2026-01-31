@@ -4,6 +4,7 @@ import { DisclosureGroup } from 'react-aria-components';
 import {Disclosure, DisclosureHeader, DisclosurePanel} from './disclosure/disclosure';
 import { TextField } from './textfield/textfield';
 import { useHeaderText } from '../provider/header';
+import FileUploader from './dropzone/fileuploader';
 
 export default function Sidebar() {
     const { header, setHeader, description, setDescription } = useHeaderText();
@@ -23,7 +24,9 @@ export default function Sidebar() {
                 </Disclosure>
                 <Disclosure id="background" defaultExpanded>
                     <DisclosureHeader>Background images</DisclosureHeader>
-                    <DisclosurePanel>Files content</DisclosurePanel>
+                    <DisclosurePanel >
+                        <FileUploader />
+                    </DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="footer" defaultExpanded>
                     <DisclosureHeader>Footer and Logos </DisclosureHeader>

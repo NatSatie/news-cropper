@@ -23,7 +23,7 @@ export function ColorProvider({ children }: ColorProviderProps) {
   );
 }
 
-export function useColorText() {
+export function useColor() {
   const context = useContext(ColorContext);
   if (context === undefined) {
     throw new Error('useColorText must be used within a ColorProvider');
