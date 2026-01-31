@@ -3,8 +3,10 @@
 import { createContext, useState, ReactNode, useContext } from 'react';
 
 interface HeaderContextType {
-  header: string;
-  setHeader: (value: string) => void;
+    header: string;
+    setHeader: (value: string) => void;
+    description: string;
+    setDescription: (value: string) => void;
 }
 
 export const HeaderContext = createContext<HeaderContextType | undefined>(undefined);
@@ -15,9 +17,10 @@ interface HeaderProviderProps {
 
 export function HeaderProvider({ children }: HeaderProviderProps) {
   const [header, setHeader] = useState<string>("My Awesome Post");
+  const [description, setDescription] = useState<string>("This event will be incredible! Please save the date and join us for a memorable experience. More details to follow soon.ß");
 
   return (
-    <HeaderContext.Provider value={{ header, setHeader }}>
+    <HeaderContext.Provider value={{ header, setHeader, description, setDescription }}>
       {children}
     </HeaderContext.Provider>
   );

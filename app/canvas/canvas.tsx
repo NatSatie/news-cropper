@@ -1,15 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import { useHeaderText } from '../provider/header';
 
 export default function Canvas() {
-    const { header, setHeader } = useHeaderText();
+    const { header, setHeader, description } = useHeaderText();
 
     return (
         <div style={{ width: '75%', height: '100vh', backgroundColor: 'lightblue' }}>
-            {/* content= */}
             <h1>{header}</h1>
+            <h2>{description}</h2>
         </div>
     );
 }

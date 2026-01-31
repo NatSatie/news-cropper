@@ -6,7 +6,7 @@ import { TextField } from './textfield/textfield';
 import { useHeaderText } from '../provider/header';
 
 export default function Sidebar() {
-    const { header, setHeader } = useHeaderText();
+    const { header, setHeader, description, setDescription } = useHeaderText();
     return (
         <div style={{ width: '25%', height: '100vh' }}>
             <DisclosureGroup allowsMultipleExpanded={true} expandedKeys={["global", "style", "background", "footer"]}>
@@ -14,6 +14,7 @@ export default function Sidebar() {
                     <DisclosureHeader>Global content</DisclosureHeader>
                     <DisclosurePanel>
                         <TextField label="Main header" defaultValue={header} className="w-full mb-4" onChange={setHeader} />
+                        <TextField label="Description" isTextArea className="react-aria-TextArea inset" defaultValue={description} onChange={setDescription} />
                     </DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="style" defaultExpanded>
