@@ -25,11 +25,12 @@ export default function FileUploader() {
             } else if (item?.kind === 'file') {
             let file = await item.getFile();
             let url = URL.createObjectURL(file);
-            setImage(<img src={url} alt={item.name} style={{maxHeight: 100, maxWidth: '100%'}} />)
+            setImage(url)
             }
       }}>
       <Text slot="label">
-        {image || "Drop or paste text or images here"}
+        {"Drop or paste text or images here"}
+        <img src={image || ""} style={{maxHeight: 100, maxWidth: '100%'}} />
       </Text>
     </DropZone>
   );

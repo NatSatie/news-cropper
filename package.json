@@ -15,8 +15,10 @@
     "react": "19.2.3",
     "react-aria-components": "^1.14.0",
     "react-dom": "19.2.3",
+    "react-konva": "^19.2.1",
     "tailwind-merge": "^3.4.0",
-    "tailwind-variants": "^3.2.2"
+    "tailwind-variants": "^3.2.2",
+    "use-image": "^1.1.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
