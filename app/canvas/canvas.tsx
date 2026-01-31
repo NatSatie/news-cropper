@@ -2,12 +2,15 @@
 
 import { useHeaderText } from '../provider/header';
 import { useImage } from '../provider/image';
+import { useColor } from '../provider/color';
 import { Stage, Layer, Group, Image } from 'react-konva';
+import {} from 'react-aria-components';
 import useImageKonva from 'use-image';
 
 export default function Canvas() {
     const { header, description } = useHeaderText();
     const { image } = useImage();
+    const { color } = useColor();
 
     const handleMouseOver = () => {
         document.body.style.cursor = 'move';
@@ -18,7 +21,7 @@ export default function Canvas() {
     };
 
     return (
-        <div style={{ width: '75%', height: '100vh', backgroundColor: 'lightblue' }}>
+        <div style={{ width: '75%', height: '100vh', backgroundColor: color.toString() , padding: '20px', boxSizing: 'border-box' }}>
             <h1>{header}</h1>
             <h2>{description}</h2>
             <div style={{ width: '500px', height: '500px'}}>

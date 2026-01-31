@@ -5,6 +5,7 @@ import {Disclosure, DisclosureHeader, DisclosurePanel} from './disclosure/disclo
 import { TextField } from './textfield/textfield';
 import { useHeaderText } from '../provider/header';
 import FileUploader from './dropzone/fileuploader';
+import ColorSwatchGroup from './colorswatpicker/colorswatchgroup';
 
 export default function Sidebar() {
     const { header, setHeader, description, setDescription } = useHeaderText();
@@ -16,6 +17,7 @@ export default function Sidebar() {
                     <DisclosurePanel>
                         <TextField label="Main header" defaultValue={header} className="w-full mb-4" onChange={setHeader} />
                         <TextField label="Description" isTextArea className="react-aria-TextArea inset" defaultValue={description} onChange={setDescription} />
+                        <ColorSwatchGroup />
                     </DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="style" defaultExpanded>
