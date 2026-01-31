@@ -13,7 +13,7 @@ import {
 import { Button } from './button';
 import { tv } from "tailwind-variants";
 import { ChevronRight } from "lucide-react";
-import { composeTailwindRenderProps } from "./utils";
+import { composeTailwindRenderProps } from "../utils";
 
 const disclosure = tv({
   base: "group min-w-50 font-sans rounded-lg text-neutral-900 dark:text-neutral-200"
