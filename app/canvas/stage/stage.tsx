@@ -12,14 +12,6 @@ export default function Stage() {
     const { background, footer } = useImage();
     const { color } = useColor();
 
-    const handleMouseOver = () => {
-        document.body.style.cursor = 'move';
-    };
-
-    const handleMouseOut = () => {
-        document.body.style.cursor = 'default';
-    };
-
     return (
         <div style={{
             width: '500px',
@@ -33,27 +25,56 @@ export default function Stage() {
         }}> 
             <div style={{ fontSize: '24px', fontWeight: 'bold', backgroundColor: color.toString(), color: 'white' }}>{header}</div>
             {description}
-            <KonvaStage width={500} height={500} style={{ border: '1px solid black', backgroundColor: 'white' }}>
-                <Layer>
-                    <Image
-                        draggable
-                        image={extractSrc(background)}
-                        onMouseEnter={handleMouseOver}
-                        onMouseLeave={handleMouseOut}
-                        cornerRadius={20}/>
-                </Layer>
-            </KonvaStage>
-            <KonvaStage width={500} height={500} style={{ border: '1px solid black', backgroundColor: 'white' }}>
-                <Layer>
-                    <Image
-                        draggable
-                        image={extractSrc(footer)}
-                        onMouseEnter={handleMouseOver}
-                        onMouseLeave={handleMouseOut}
-                        cornerRadius={20}/>
-                </Layer>
-            </KonvaStage>
+            <BackgroundImage />
+            <FooterLogo />
         </div>
+    );
+}
+
+
+function BackgroundImage() {
+    const { background } = useImage();
+    const handleMouseOver = () => {
+        document.body.style.cursor = 'move';
+    };
+
+    const handleMouseOut = () => {
+        document.body.style.cursor = 'default';
+    };
+    return (
+        <KonvaStage width={500} height={200} style={{ border: '1px solid black', backgroundColor: 'white' }}>
+            <Layer>
+                <Image
+                    draggable
+                    image={extractSrc(background)}
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
+                    cornerRadius={20}/>
+            </Layer>
+        </KonvaStage>
+    );
+}
+
+function FooterLogo() {
+    const { footer } = useImage();
+    const handleMouseOver = () => {
+        document.body.style.cursor = 'move';
+    };
+
+    const handleMouseOut = () => {
+        document.body.style.cursor = 'default';
+    };
+    return (
+        <KonvaStage width={100} height={100} style={{ border: '1px solid black', backgroundColor: 'white' }}>
+            <Layer>
+                <Image
+                    draggable
+                    image={extractSrc(footer)}
+                    onMouseEnter={handleMouseOver}
+                    onMouseLeave={handleMouseOut}
+                    cornerRadius={20}/>
+            </Layer>
+        </KonvaStage>
     );
 }
 
