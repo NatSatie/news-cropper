@@ -29,7 +29,7 @@ export default function FileUploader() {
             }
       }}>
       <Text slot="label">
-        {"Drop or paste text or images here"}
+        {"Drop your image here"}
         <img src={image || ""} style={{maxHeight: 100, maxWidth: '100%'}} />
       </Text>
     </DropZone>

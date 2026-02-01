@@ -6,7 +6,7 @@ import { useColor } from '../../provider/color';
 export default function ColorSwatchGroup() {
     let { color, setColor } = useColor();
     return (
-        <ColorSwatchPicker aria-label="Background color" value={color} onChange={setColor} className="grid grid-cols-6 gap-2 my-4">
+        <ColorSwatchPicker aria-label="Background color" value={color} onChange={setColor} className="grid grid-cols-7 gap-2 my-4 mx-4">
             <ColorSwatchPickerItem color="#DBDBDB" />
             <ColorSwatchPickerItem color="#A00" />
             <ColorSwatchPickerItem color="#f80" />
