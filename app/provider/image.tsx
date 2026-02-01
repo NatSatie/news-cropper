@@ -3,8 +3,10 @@
 import { createContext, useState, ReactNode, useContext } from 'react';
 
 interface ImageContextType {
-  image: string | null;
-  setImage: (value: string) => void;
+  background: string | null;
+  setBackground: (value: string | null) => void;
+  footer: string | null;
+  setFooter: (value: string | null) => void;
 }
 
 export const ImageContext = createContext<ImageContextType | undefined>(undefined);
@@ -14,10 +16,11 @@ interface ImageProviderProps {
 }
 
 export function ImageProvider({ children }: ImageProviderProps) {
-  const [image, setImage] = useState<string | null>(null);
+  const [background, setBackground] = useState<string | null>(null);
+  const [footer, setFooter] = useState<string | null>(null);
 
   return (
-    <ImageContext.Provider value={{ image , setImage }}>
+    <ImageContext.Provider value={{ background, setBackground, footer, setFooter }}>
       {children}
     </ImageContext.Provider>
   );

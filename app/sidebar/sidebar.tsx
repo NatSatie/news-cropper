@@ -33,12 +33,14 @@ export default function Sidebar() {
                 <Disclosure id="background" defaultExpanded>
                     <DisclosureHeader>Background images</DisclosureHeader>
                     <DisclosurePanel >
-                        <FileUploader />
+                        <FileUploader fileType='background' />
                     </DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="footer" defaultExpanded>
                     <DisclosureHeader>Footer and Logos </DisclosureHeader>
-                    <DisclosurePanel>Files content</DisclosurePanel>
+                    <DisclosurePanel >
+                        <FileUploader fileType='footer' />
+                    </DisclosurePanel>
                 </Disclosure>
             </DisclosureGroup>
         </div>

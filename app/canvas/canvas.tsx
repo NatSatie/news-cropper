@@ -9,7 +9,7 @@ import useImageKonva from 'use-image';
 
 export default function Canvas() {
     const { header, description } = useHeaderText();
-    const { image } = useImage();
+    const { background } = useImage();
     const { color } = useColor();
 
     const handleMouseOver = () => {
@@ -29,7 +29,7 @@ export default function Canvas() {
                     <Layer>
                         <Image
                             draggable
-                            image={extractSrc(image)}
+                            image={extractSrc(background)}
                             onMouseEnter={handleMouseOver}
                             onMouseLeave={handleMouseOut}
                             cornerRadius={20}/>
