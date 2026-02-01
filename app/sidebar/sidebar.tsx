@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import { DisclosureGroup } from 'react-aria-components';
 import {Disclosure, DisclosureHeader, DisclosurePanel} from './disclosure/disclosure';
 import { TextField } from './textfield/textfield';
@@ -9,9 +10,14 @@ import ColorSwatchGroup from './colorswatpicker/colorswatchgroup';
 
 export default function Sidebar() {
     const { header, setHeader, description, setDescription } = useHeaderText();
+    let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer"]));
     return (
         <div style={{ width: '25%', height: '100vh' }}>
-            <DisclosureGroup allowsMultipleExpanded={true} expandedKeys={["global", "style", "background", "footer"]}>
+            <DisclosureGroup
+                allowsMultipleExpanded={true}
+                expandedKeys={expandedKeys}
+                onExpandedChange={(keys) => setExpandedKeys(new Set(keys as Iterable<string>))}
+            >
                 <Disclosure id="global" defaultExpanded>
                     <DisclosureHeader>Global content</DisclosureHeader>
                     <DisclosurePanel>
