@@ -1,14 +1,14 @@
 'use client';
 
-import { useHeaderText } from '../../provider/header';
 import { useImage } from '../../provider/image';
 import { useColor } from '../../provider/color';
+import Description from '../description/description';
+import Header from '../header/header';
 import { Stage as KonvaStage, Layer, Rect, Image, Text } from 'react-konva';
-import {} from 'react-aria-components';
+import { } from 'react-aria-components';
 import useImageKonva from 'use-image';
 
 export default function Stage() {
-    const { header, description } = useHeaderText();
     const { background, footer } = useImage();
     const { color } = useColor();
 
@@ -22,9 +22,9 @@ export default function Stage() {
             gap: '10px',
             alignItems: 'center',
             justifyContent: 'flex-start',
-        }}> 
-            <div style={{ fontSize: '24px', fontWeight: 'bold', backgroundColor: color.toString(), color: 'white' }}>{header}</div>
-            {description}
+        }}>
+            <Header />
+            <Description />
             <BackgroundImage />
             <FooterLogo />
         </div>
@@ -49,7 +49,7 @@ function BackgroundImage() {
                     image={extractSrc(background)}
                     onMouseEnter={handleMouseOver}
                     onMouseLeave={handleMouseOut}
-                    cornerRadius={20}/>
+                    cornerRadius={20} />
             </Layer>
         </KonvaStage>
     );
@@ -72,13 +72,13 @@ function FooterLogo() {
                     image={extractSrc(footer)}
                     onMouseEnter={handleMouseOver}
                     onMouseLeave={handleMouseOut}
-                    cornerRadius={20}/>
+                    cornerRadius={20} />
             </Layer>
         </KonvaStage>
     );
 }
 
-function extractSrc(img: string | null): CanvasImageSource | undefined{
+function extractSrc(img: string | null): CanvasImageSource | undefined {
     if (img === null || img === undefined) {
         return undefined;
     }

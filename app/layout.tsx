@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { HeaderProvider } from "./provider/header";
+import { DescriptionProvider } from "./provider/description";
 import { ColorProvider } from "./provider/color";
 import { ImageProvider } from "./provider/image";
 
@@ -31,11 +32,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <HeaderProvider>
-          <ColorProvider>
-            <ImageProvider>
-              {children}
-            </ImageProvider>
-          </ColorProvider>
+          <DescriptionProvider>
+            <ColorProvider>
+              <ImageProvider>
+                {children}
+              </ImageProvider>
+            </ColorProvider>
+          </DescriptionProvider>
         </HeaderProvider>
       </body>
     </html>
