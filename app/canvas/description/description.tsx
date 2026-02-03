@@ -15,8 +15,8 @@ interface DescriptionStyleProps {
 
 function DescriptionStyle({ ...props }: DescriptionStyleProps) {
     return ({
-        fontSize: '24px',
-        fontWeight: 'bold',
+        fontSize: '16px',
+        fontWeight: 'normal',
         backgroundColor: props.backgroundColor,
         color: props.color
     });
@@ -24,12 +24,11 @@ function DescriptionStyle({ ...props }: DescriptionStyleProps) {
 
 export default function Description() {
     const { text } = useDescriptionText();
-    const { background } = useImage();
     const { color } = useColor();
 
     return (
         <div style={DescriptionStyle({
-            backgroundColor: background ? background.toString() : 'white',
+            backgroundColor: 'white',
             color: 'black'
         })}>{text}</div>
     );

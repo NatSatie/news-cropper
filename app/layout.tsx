@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { HeaderProvider } from "./provider/header";
 import { DescriptionProvider } from "./provider/description";
+import { CanvasProvider } from "./provider/canvas";
 import { ColorProvider } from "./provider/color";
 import { ImageProvider } from "./provider/image";
 
@@ -31,15 +32,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeaderProvider>
-          <DescriptionProvider>
-            <ColorProvider>
-              <ImageProvider>
-                {children}
-              </ImageProvider>
-            </ColorProvider>
-          </DescriptionProvider>
-        </HeaderProvider>
+        <CanvasProvider>
+          <HeaderProvider>
+            <DescriptionProvider>
+              <ColorProvider>
+                <ImageProvider>
+                  {children}
+                </ImageProvider>
+              </ColorProvider>
+            </DescriptionProvider>
+          </HeaderProvider>
+        </CanvasProvider>
+
       </body>
     </html>
   );

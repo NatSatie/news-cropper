@@ -29,8 +29,8 @@ export default function Header() {
 
     return (
         <div style={HeaderStyle({
-            backgroundColor: background ? background.toString() : 'white',
-            color: 'black'
+            backgroundColor: color ? color.toString() : 'white',
+            color: color ? 'white' : 'black',
         }
         )}>{text}</div>
     );

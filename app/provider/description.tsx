@@ -20,7 +20,7 @@ interface DescriptionProviderProps {
 }
 
 export function DescriptionProvider({ children }: DescriptionProviderProps) {
-    const [text, setText] = useState<string>("My Awesome Post Title");
+    const [text, setText] = useState<string>("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla, nunc non lacinia viverra, ipsum justo scelerisque erat, in sodales enim ligula tincidunt lorem. Nulla elementum neque vitae diam vehicula, in dapibus lorem lobortis. Phasellus risus ligula, elementum ut sollicitudin eget, pretium sed arcu. Aenean placerat augue in ipsum vulputate, eget finibus lectus porta. Vestibulum iaculis cursus magna, pharetra fermentum velit ultrices in. Maecenas auctor molestie ipsum vitae imperdiet. Curabitur et suscipit urna. Etiam porttitor magna eu tortor vestibulum, ac gravida risus aliquet. Ut et turpis lectus. Nulla quis ipsum at ante iaculis ultricies sit amet id ante. Quisque quis scelerisque lorem. Quisque vehicula luctus aliquet.");
     const [fontSize, setFontSize] = useState<number>(24);
     const [fontWeight, setFontWeight] = useState<string>("bold");
     const [fontFamily, setFontFamily] = useState<string>("Arial");
