@@ -18,8 +18,8 @@ export default function Stage({ width, height }: StageProps) {
 
     return (
         <div style={{
-            width: width + 'px',
-            height: height + 'px',
+            width: width.toString() + 'px',
+            height: height.toString() + 'px',
             backgroundColor: 'white',
             flexDirection: 'column',
             display: 'flex',
@@ -38,6 +38,7 @@ export default function Stage({ width, height }: StageProps) {
 
 function BackgroundImage() {
     const { background } = useImage();
+    const [img] = useImageKonva(background || '');
     const handleMouseOver = () => {
         document.body.style.cursor = 'move';
     };
@@ -48,12 +49,15 @@ function BackgroundImage() {
     return (
         <KonvaStage width={500} height={200} style={{ border: '1px solid black', backgroundColor: 'white' }}>
             <Layer>
-                <Image
-                    draggable
-                    image={extractSrc(background)}
-                    onMouseEnter={handleMouseOver}
-                    onMouseLeave={handleMouseOut}
-                    cornerRadius={20} />
+                {img && (
+                    <Image
+                        image={img}
+                        draggable
+                        onMouseEnter={handleMouseOver}
+                        onMouseLeave={handleMouseOut}
+                        cornerRadius={20}
+                    />
+                )}
             </Layer>
         </KonvaStage>
     );
@@ -61,6 +65,7 @@ function BackgroundImage() {
 
 function FooterLogo() {
     const { footer } = useImage();
+    const [img] = useImageKonva(footer || '');
     const handleMouseOver = () => {
         document.body.style.cursor = 'move';
     };
@@ -71,12 +76,15 @@ function FooterLogo() {
     return (
         <KonvaStage width={100} height={100} style={{ border: '1px solid black', backgroundColor: 'white' }}>
             <Layer>
-                <Image
-                    draggable
-                    image={extractSrc(footer)}
-                    onMouseEnter={handleMouseOver}
-                    onMouseLeave={handleMouseOut}
-                    cornerRadius={20} />
+                {img && (
+                    <Image
+                        image={img}
+                        draggable
+                        onMouseEnter={handleMouseOver}
+                        onMouseLeave={handleMouseOut}
+                        cornerRadius={20}
+                    />
+                )}
             </Layer>
         </KonvaStage>
     );
