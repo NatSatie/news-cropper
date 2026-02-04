@@ -8,14 +8,18 @@ import { Stage as KonvaStage, Layer, Rect, Image, Text } from 'react-konva';
 import { } from 'react-aria-components';
 import useImageKonva from 'use-image';
 
-export default function Stage() {
-    const { background, footer } = useImage();
+interface StageProps {
+    width: number;
+    height: number;
+}
+
+export default function Stage({ width, height }: StageProps) {
     const { color } = useColor();
 
     return (
         <div style={{
-            width: '500px',
-            height: '1200px',
+            width: width + 'px',
+            height: height + 'px',
             backgroundColor: 'white',
             flexDirection: 'column',
             display: 'flex',
@@ -24,8 +28,8 @@ export default function Stage() {
             justifyContent: 'flex-start',
         }}>
             <Header />
-            <Description />
             <BackgroundImage />
+            <Description />
             <FooterLogo />
         </div>
     );
