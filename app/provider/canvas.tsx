@@ -2,11 +2,14 @@
 
 import { createContext, useState, ReactNode, useContext } from 'react';
 
-interface CanvasContextType {
+interface SingleStageType {
     width: number;
-    setWidth: (value: number) => void;
     height: number;
-    setHeight: (value: number) => void;
+}
+
+interface CanvasContextType {
+    canvas: SingleStageType[];
+    setCanvas: (canvas: SingleStageType[]) => void;
 }
 
 export const CanvasContext = createContext<CanvasContextType | undefined>(undefined);
@@ -16,11 +19,15 @@ interface CanvasProviderProps {
 }
 
 export function CanvasProvider({ children }: CanvasProviderProps) {
-    const [width, setWidth] = useState<number>(800);
-    const [height, setHeight] = useState<number>(600);
+    const [canvas, setCanvas] = useState<SingleStageType[]>([
+        {
+            width: 800,
+            height: 600,
+        } as SingleStageType
+    ]);
 
     return (
-        <CanvasContext.Provider value={{ width, setWidth, height, setHeight }}>
+        <CanvasContext.Provider value={{ canvas, setCanvas }}>
             {children}
         </CanvasContext.Provider>
     );
