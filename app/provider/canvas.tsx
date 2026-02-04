@@ -1,13 +1,15 @@
 "use client";
 
 import { createContext, useState, ReactNode, useContext } from 'react';
+import { JSX } from 'react/jsx-runtime';
 
-interface SingleStageType {
+export interface SingleStageType {
     width: number;
     height: number;
 }
 
 interface CanvasContextType {
+    map(arg0: (stage: SingleStageType, index: number) => JSX.Element): ReactNode;
     canvas: SingleStageType[];
     setCanvas: (canvas: SingleStageType[]) => void;
 }
@@ -27,7 +29,7 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
     ]);
 
     return (
-        <CanvasContext.Provider value={{ canvas, setCanvas }}>
+        <CanvasContext.Provider value={{ canvas, setCanvas, map: canvas.map }}>
             {children}
         </CanvasContext.Provider>
     );
