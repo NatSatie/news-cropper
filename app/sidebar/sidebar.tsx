@@ -27,7 +27,7 @@ function EditDescription() {
 
 export default function Sidebar() {
     let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer"]));
-    const { backgroundHeaderColor, setBackgroundHeaderColor } = useColor();
+    const { backgroundHeaderColor, setBackgroundHeaderColor, headerColor, setHeaderColor } = useColor();
     return (
         <div style={{ width: '25%', height: '100vh' }}>
             <DisclosureGroup
@@ -44,6 +44,12 @@ export default function Sidebar() {
                             label='Header Background Color'
                             color={backgroundHeaderColor}
                             onChange={setBackgroundHeaderColor}
+                        />
+                        <ColorSwatchGroup
+                            ariaLabel='Header Font color'
+                            label='Header Font Color'
+                            color={headerColor}
+                            onChange={setHeaderColor}
                         />
                     </DisclosurePanel>
                 </Disclosure>
