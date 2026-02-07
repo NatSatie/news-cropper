@@ -10,11 +10,15 @@ import FileUploader from './dropzone/fileuploader';
 import ColorSwatchGroup from './colorswatpicker/colorswatchgroup';
 import { AddStage } from './addstage';
 import { useColor } from '../provider/color';
+import { ChangeFont } from './changefont';
 
 function EditHeader() {
     const { text, setText } = useHeaderText();
     return (
-        <TextField label="Main header" defaultValue={text} className="w-full mb-4" onChange={setText} />
+        <>
+            <TextField label="Main header" defaultValue={text} className="w-full mb-4" onChange={setText} />
+            <ChangeFont />
+        </>
     );
 }
 

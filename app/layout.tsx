@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { HeaderProvider } from "./provider/header";
 import { DescriptionProvider } from "./provider/description";
 import { CanvasProvider } from "./provider/canvas";
 import { ColorProvider } from "./provider/color";
 import { ImageProvider } from "./provider/image";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { inter, roboto, openSans, montserrat, lato, oswald, playfair, poppins, noto, robotoCond } from "./canvas/fonthelper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,10 +17,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let allFontVariables = [
+    inter, roboto, openSans, montserrat, lato, oswald, playfair, poppins, noto, robotoCond
+  ].forEach((font) => {
+    if (font.variable) {
+      document.body.classList.add(font.variable);
+    }
+  });
+
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${allFontVariables} antialiased`}
       >
         <CanvasProvider>
           <HeaderProvider>
