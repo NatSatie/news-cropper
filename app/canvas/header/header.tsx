@@ -35,7 +35,7 @@ export default function Header() {
         <div style={HeaderStyle({
             backgroundColor: backgroundHeaderColor ? backgroundHeaderColor.toString() : 'white',
             color: headerColor ? headerColor.toString() : 'black',
-            fontFamily: fontFamily || fontOptions[0]?.variable || 'var(--font-inter)',
+            fontFamily: fontFamily ? fontFamily : 'inherit',
         }
         )}>{text}</div>
     );

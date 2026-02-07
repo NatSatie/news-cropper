@@ -5,7 +5,7 @@ import { DescriptionProvider } from "./provider/description";
 import { CanvasProvider } from "./provider/canvas";
 import { ColorProvider } from "./provider/color";
 import { ImageProvider } from "./provider/image";
-import { inter, roboto, openSans, montserrat, lato, oswald, playfair, poppins, noto, robotoCond } from "./canvas/fonthelper";
+import { inter, roboto, openSans, montserrat, lato, oswald, playfair, poppins, noto, robotoCond, fontOptions } from "./canvas/fonthelper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,19 +17,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let allFontVariables = [
-    inter, roboto, openSans, montserrat, lato, oswald, playfair, poppins, noto, robotoCond
-  ].forEach((font) => {
-    if (font.variable) {
-      document.body.classList.add(font.variable);
-    }
-  });
-
+  // Combine all font variables into a single string to apply to the body class
   return (
     <html lang="en">
-      <body
-        className={`${allFontVariables} antialiased`}
-      >
+      <body>
         <CanvasProvider>
           <HeaderProvider>
             <DescriptionProvider>

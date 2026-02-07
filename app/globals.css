@@ -3,6 +3,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-geist-sans: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-roboto: var(--font-roboto);
+  --font-open-sans: var(--font-open-sans);
+  --font-montserrat: var(--font-montserrat);
+  --font-lato: var(--font-lato);
+  --font-oswald: var(--font-oswald);
+  --font-playfair: var(--font-playfair);
+  --font-poppins: var(--font-poppins);
+  --font-noto: var(--font-noto);
+  --font-roboto-cond: var(--font-roboto-cond);
 }
 
 @theme inline {

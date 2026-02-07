@@ -8,14 +8,10 @@ export function ChangeFont() {
     const { fontFamily, setFontFamily } = useHeaderText();
 
     const handleFontChange = (key: React.Key | null) => {
-        console.log('Selected font:', key);
         if (key !== null && setFontFamily) {
             const index = fontOptions.findIndex((option) => option.name === key);
             if (index !== -1) {
-                console.log('Previous:', fontFamily);
-                //console.log('Font variable:', fontOptions[index].variable);
-                setFontFamily(fontOptions[index].name);
-                console.log('Font family set to:', fontFamily);
+                setFontFamily(fontOptions[index].variable);
             }
         }
     };

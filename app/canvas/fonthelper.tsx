@@ -24,14 +24,14 @@ export interface FontOption {
 
 // Array for your dropdown menu
 export const fontOptions = [
-    { name: 'Inter', variable: 'var(--font-inter)', value: inter },
-    { name: 'Roboto', variable: 'var(--font-roboto)', value: roboto },
-    { name: 'Open Sans', variable: 'var(--font-open-sans)', value: openSans },
-    { name: 'Montserrat', variable: 'var(--font-montserrat)', value: montserrat },
-    { name: 'Lato', variable: 'var(--font-lato)', value: lato },
-    { name: 'Oswald', variable: 'var(--font-oswald)', value: oswald },
-    { name: 'Playfair Display', variable: 'var(--font-playfair)', value: playfair },
-    { name: 'Poppins', variable: 'var(--font-poppins)', value: poppins },
-    { name: 'Noto Sans', variable: 'var(--font-noto)', value: noto },
-    { name: 'Roboto Condensed', variable: 'var(--font-roboto-cond)', value: robotoCond },
+    { name: 'Inter', variable: '--font-inter', value: inter },
+    { name: 'Roboto', variable: '--font-roboto', value: roboto },
+    { name: 'Open Sans', variable: '--font-open-sans', value: openSans },
+    { name: 'Montserrat', variable: '--font-montserrat', value: montserrat },
+    { name: 'Lato', variable: '--font-lato', value: lato },
+    { name: 'Oswald', variable: '--font-oswald', value: oswald },
+    { name: 'Playfair Display', variable: '--font-playfair', value: playfair },
+    { name: 'Poppins', variable: '--font-poppins', value: poppins },
+    { name: 'Noto Sans', variable: '--font-noto', value: noto },
+    { name: 'Roboto Condensed', variable: '--font-roboto-cond', value: robotoCond },
 ] as FontOption[];
