@@ -35,8 +35,11 @@ export default function Header() {
         <div style={HeaderStyle({
             backgroundColor: backgroundHeaderColor ? backgroundHeaderColor.toString() : 'white',
             color: headerColor ? headerColor.toString() : 'black',
-            fontFamily: fontFamily ? fontFamily : 'inherit',
         }
-        )}>{text}</div>
+        )}>
+            <h1 style={{ fontFamily: `var(${fontFamily || '--font-inter'})`, margin: 0 }}>
+                {text}
+            </h1>
+        </div>
     );
 }

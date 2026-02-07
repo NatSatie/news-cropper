@@ -18,9 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Combine all font variables into a single string to apply to the body class
+  const allFontVariables = "--font-inter --font-roboto --font-open-sans --font-montserrat --font-lato --font-oswald --font-playfair --font-poppins --font-noto --font-roboto-cond";
+
   return (
     <html lang="en">
-      <body>
+      <body
+        className={`${allFontVariables} antialiased`}
+      >
         <CanvasProvider>
           <HeaderProvider>
             <DescriptionProvider>
