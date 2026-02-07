@@ -18,7 +18,7 @@ interface ColorProviderProps {
 
 export function ColorProvider({ children }: ColorProviderProps) {
   const [backgroundHeaderColor, setBackgroundHeaderColor] = useState<Color>(parseColor("#DBDBDB"));
-  const [headerColor, setHeaderColor] = useState<Color>(parseColor("#DBDBDB"));
+  const [headerColor, setHeaderColor] = useState<Color>(parseColor("#000000"));
 
   return (
     <ColorContext.Provider value={{
