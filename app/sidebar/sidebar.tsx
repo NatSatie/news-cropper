@@ -8,8 +8,8 @@ import { useHeaderText } from '../provider/header';
 import { useDescriptionText } from '../provider/description';
 import FileUploader from './dropzone/fileuploader';
 import ColorSwatchGroup from './colorswatpicker/colorswatchgroup';
-import { SingleStageType, useCanvas } from '../provider/canvas';
-import { Button } from './button/button';
+import { AddStage } from './addstage';
+import { useColor } from '../provider/color';
 
 function EditHeader() {
     const { text, setText } = useHeaderText();
@@ -25,27 +25,9 @@ function EditDescription() {
     );
 }
 
-function AddStage() {
-    const [stageName, setStageName] = useState<string>("my new stage");
-    const [width, setWidth] = useState<string>("500");
-    const [height, setHeight] = useState<string>("500");
-    const { canvas, setCanvas } = useCanvas();
-    return (
-        <div>
-            <TextField label="Stage name" defaultValue={"my new stage"} className="w-full mb-4" onChange={setStageName} />
-            <TextField label="Width" defaultValue={"500"} className="w-full mb-4" onChange={setWidth} />
-            <TextField label="Height" defaultValue={"500"} className="w-full mb-4" onChange={setHeight} />
-            <Button onClick={
-                () => {
-                    setCanvas(canvas.concat([{ name: stageName, width: Number(width), height: Number(height) } as SingleStageType]));
-                }
-            }> Add Stage </Button>
-        </div>
-    );
-}
-
 export default function Sidebar() {
     let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer", "add-stage"]));
+    const { backgroundHeaderColor, setBackgroundHeaderColor } = useColor();
     return (
         <div style={{ width: '25%', height: '100vh' }}>
             <DisclosureGroup
@@ -54,21 +36,27 @@ export default function Sidebar() {
                 onExpandedChange={(keys) => setExpandedKeys(new Set(keys as Iterable<string>))}
             >
                 <Disclosure id="global" defaultExpanded>
-                    <DisclosureHeader>Global content</DisclosureHeader>
+                    <DisclosureHeader>Header</DisclosureHeader>
                     <DisclosurePanel>
                         <EditHeader />
-                        <EditDescription />
-                        <ColorSwatchGroup />
+                        <ColorSwatchGroup
+                            ariaLabel='Header Background color'
+                            label='Header Background Color'
+                            color={backgroundHeaderColor}
+                            onChange={setBackgroundHeaderColor}
+                        />
                     </DisclosurePanel>
-                </Disclosure>
-                <Disclosure id="style" defaultExpanded>
-                    <DisclosureHeader>Typography and Style</DisclosureHeader>
-                    <DisclosurePanel>Files content</DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="background" defaultExpanded>
                     <DisclosureHeader>Background images</DisclosureHeader>
                     <DisclosurePanel >
                         <FileUploader fileType='background' />
+                    </DisclosurePanel>
+                </Disclosure>
+                <Disclosure id="style" defaultExpanded>
+                    <DisclosureHeader>Description</DisclosureHeader>
+                    <DisclosurePanel>
+                        <EditDescription />
                     </DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="footer" defaultExpanded>

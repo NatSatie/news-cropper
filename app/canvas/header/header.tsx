@@ -24,13 +24,12 @@ function HeaderStyle({ ...props }: HeaderStyleProps) {
 
 export default function Header() {
     const { text } = useHeaderText();
-    const { background } = useImage();
-    const { color } = useColor();
+    const { backgroundHeaderColor, headerColor } = useColor();
 
     return (
         <div style={HeaderStyle({
-            backgroundColor: color ? color.toString() : 'white',
-            color: color ? 'white' : 'black',
+            backgroundColor: backgroundHeaderColor ? backgroundHeaderColor.toString() : 'white',
+            color: headerColor ? headerColor.toString() : 'black',
         }
         )}>{text}</div>
     );

@@ -14,8 +14,6 @@ interface StageProps {
 }
 
 export default function Stage({ width, height }: StageProps) {
-    const { color } = useColor();
-
     return (
         <div style={{
             width: width.toString() + 'px',

@@ -24,7 +24,6 @@ function DescriptionStyle({ ...props }: DescriptionStyleProps) {
 
 export default function Description() {
     const { text } = useDescriptionText();
-    const { color } = useColor();
 
     return (
         <div style={DescriptionStyle({

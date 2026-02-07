@@ -1,11 +1,13 @@
 "use client";
 
 import { createContext, useState, ReactNode, useContext } from 'react';
-import {Color, parseColor} from 'react-aria-components';
+import { Color, parseColor } from 'react-aria-components';
 
 interface ColorContextType {
-  color: Color;
-  setColor: (value: Color) => void;
+  backgroundHeaderColor: Color;
+  setBackgroundHeaderColor: (value: Color) => void;
+  headerColor: Color;
+  setHeaderColor: (value: Color) => void;
 }
 
 export const ColorContext = createContext<ColorContextType | undefined>(undefined);
@@ -15,10 +17,13 @@ interface ColorProviderProps {
 }
 
 export function ColorProvider({ children }: ColorProviderProps) {
-  const [color, setColor] = useState<Color>(parseColor("#DBDBDB"));
+  const [backgroundHeaderColor, setBackgroundHeaderColor] = useState<Color>(parseColor("#DBDBDB"));
+  const [headerColor, setHeaderColor] = useState<Color>(parseColor("#DBDBDB"));
 
   return (
-    <ColorContext.Provider value={{ color, setColor }}>
+    <ColorContext.Provider value={{
+      backgroundHeaderColor, setBackgroundHeaderColor, headerColor, setHeaderColor
+    }}>
       {children}
     </ColorContext.Provider>
   );
