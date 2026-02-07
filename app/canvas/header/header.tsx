@@ -18,7 +18,9 @@ function HeaderStyle({ ...props }: HeaderStyleProps) {
         fontSize: '24px',
         fontWeight: 'bold',
         backgroundColor: props.backgroundColor,
-        color: props.color
+        color: props.color,
+        width: '100%',
+        padding: '10px',
     });
 };
 
@@ -29,7 +31,7 @@ export default function Header() {
     return (
         <div style={HeaderStyle({
             backgroundColor: backgroundHeaderColor ? backgroundHeaderColor.toString() : 'white',
-            color: headerColor ? headerColor.toString() : 'black',
+            color: headerColor ? headerColor.toString() : 'black'
         }
         )}>{text}</div>
     );

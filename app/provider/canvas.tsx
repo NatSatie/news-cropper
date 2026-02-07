@@ -7,6 +7,10 @@ export interface SingleStageType {
     name: string
     width: number;
     height: number;
+    headerHeight?: number;
+    imageHeight?: number;
+    descriptionHeight?: number;
+    footerHeight?: number;
 }
 
 interface CanvasContextType {
