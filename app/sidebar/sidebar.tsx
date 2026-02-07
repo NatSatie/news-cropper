@@ -26,7 +26,7 @@ function EditDescription() {
 }
 
 export default function Sidebar() {
-    let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer", "add-stage"]));
+    let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer"]));
     const { backgroundHeaderColor, setBackgroundHeaderColor } = useColor();
     return (
         <div style={{ width: '25%', height: '100vh' }}>
