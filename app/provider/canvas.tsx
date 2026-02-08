@@ -38,9 +38,9 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
             height: 600,
         } as SingleStageType,
         {
-            name: 'Demo Saure Large',
-            width: 600,
-            height: 600,
+            name: 'Demo Large',
+            width: 800,
+            height: 800,
         } as SingleStageType
     ],);
     const [proportions, setProportions] = useState<ProportionsType>({
