@@ -13,6 +13,7 @@ interface HeaderStyleProps {
     fontSize?: number;
     fontWeight?: string;
     fontFamily?: string;
+    height?: number;
 };
 
 function HeaderStyle({ ...props }: HeaderStyleProps) {
@@ -30,7 +31,6 @@ export default function Header() {
     const { text, fontFamily } = useHeaderText();
     const { backgroundHeaderColor, headerColor } = useColor();
 
-    console.log('Header font family:', fontFamily);
     return (
         <div style={HeaderStyle({
             backgroundColor: backgroundHeaderColor ? backgroundHeaderColor.toString() : 'white',

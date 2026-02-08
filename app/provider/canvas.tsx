@@ -1,22 +1,27 @@
 "use client";
 
-import { createContext, useState, ReactNode, useContext } from 'react';
+import { createContext, useState, ReactNode, useContext, useEffect } from 'react';
 import { JSX } from 'react/jsx-runtime';
 
 export interface SingleStageType {
     name: string
     width: number;
     height: number;
-    headerHeight?: number;
-    imageHeight?: number;
-    descriptionHeight?: number;
-    footerHeight?: number;
+}
+
+interface ProportionsType {
+    header: number;
+    image: number;
+    description: number;
+    footer: number;
 }
 
 interface CanvasContextType {
     map(arg0: (stage: SingleStageType, index: number) => ReactNode): ReactNode;
     canvas: SingleStageType[];
     setCanvas: (canvas: SingleStageType[]) => void;
+    proportions: ProportionsType;
+    setProportions: (proportions: ProportionsType) => void;
 }
 
 export const CanvasContext = createContext<CanvasContextType | undefined>(undefined);
@@ -38,9 +43,15 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
             height: 1200,
         } as SingleStageType
     ],);
+    const [proportions, setProportions] = useState<ProportionsType>({
+        header: 0.25,
+        image: 0.25,
+        description: 0.25,
+        footer: 0.25,
+    });
 
     return (
-        <CanvasContext.Provider value={{ canvas, setCanvas, map: canvas.map }}>
+        <CanvasContext.Provider value={{ canvas, setCanvas, map: canvas.map, proportions, setProportions }}>
             {children}
         </CanvasContext.Provider>
     );
