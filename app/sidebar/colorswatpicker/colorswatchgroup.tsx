@@ -26,10 +26,10 @@ export default function ColorSwatchGroup({ ...props }: ColorSwatchGroupProps) {
                     <ColorSwatchPickerItem key={color.toString()} color={color} />
                 ))}
             </ColorSwatchPicker>
-            <>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
                 <Button onClick={() => customColor != null && props.onChange(customColor)}> Add Customized color </Button>
                 <ColorPicker defaultValue={props.defaultColor} onChange={setCustomColor} />
-            </>
+            </div>
         </>
     );
 }
