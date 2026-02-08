@@ -14,7 +14,7 @@ export default function Description({ height }: { height: number }) {
             fontWeight: 'normal',
             backgroundColor: 'white',
             color: 'black',
-            height: height.toString() + '%',
+            height: height,
         }}>{text}</div>
     );
 }

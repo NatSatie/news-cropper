@@ -34,13 +34,13 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
     const [canvas, setCanvas] = useState<SingleStageType[]>([
         {
             name: 'Demo Small',
-            width: 800,
+            width: 400,
             height: 600,
         } as SingleStageType,
         {
             name: 'Demo Saure Large',
-            width: 1200,
-            height: 1200,
+            width: 600,
+            height: 600,
         } as SingleStageType
     ],);
     const [proportions, setProportions] = useState<ProportionsType>({

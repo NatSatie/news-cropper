@@ -18,8 +18,8 @@ export default function Header({ height }: { height: number }) {
             backgroundColor: backgroundHeaderColor.toString(),
             color: headerColor.toString(),
             width: '100%',
-            padding: '10px',
-            height: height.toString() + '%',
+            minHeight: height,
+            maxHeight: height,
         }}>
             <h1 style={{ fontFamily: `var(${fontFamily || '--font-inter'})`, margin: 0 }}>
                 {text}

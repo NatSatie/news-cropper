@@ -29,6 +29,8 @@ export default function Canvas() {
                         style={{
                             display: 'flex',
                             flexDirection: 'row',
+                            gap: '10px',
+                            alignItems: 'center',
                         }}>
                         <h2>{stage.name}</h2>
                         <Button onClick={
@@ -38,7 +40,7 @@ export default function Canvas() {
                             }
                         }> Delete Stage </Button>
                     </div>
-                    <Stage key={stage.width + 'x' + stage.height} width={stage.width} height={stage.height} />
+                    <Stage key={stage.name} width={stage.width} height={stage.height} />
                 </div>
             ))
             }

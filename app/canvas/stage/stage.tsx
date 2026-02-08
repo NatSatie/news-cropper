@@ -16,21 +16,23 @@ interface StageProps {
 
 export default function Stage({ ...props }: StageProps) {
     const { proportions } = useCanvas();
-    console.log("Height: " + Math.floor(props.height * proportions.header / 100));
     return (
         <div style={{
-            width: props.width.toString() + 'px',
-            height: props.width.toString() + 'px',
+            width: props.width,
+            height: props.height,
+            maxHeight: props.height,
+            minHeight: props.height,
             backgroundColor: 'white',
             flexDirection: 'column',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-start',
+            boxSizing: 'border-box',
         }}>
-            <Header height={proportions.header} />
-            <BackgroundImage width={props.width} height={proportions.image} />
-            <Description height={proportions.description} />
-            <FooterLogo width={props.width} height={proportions.footer} />
+            <Header height={Math.floor(proportions.header * props.height / 100)} />
+            <BackgroundImage width={props.width} height={Math.floor(proportions.image * props.height / 100)} />
+            <Description height={Math.floor(proportions.description * props.height / 100)} />
+            <FooterLogo width={props.width} height={Math.floor(proportions.footer * props.height / 100)} />
         </div>
     );
 }
@@ -51,7 +53,7 @@ function FooterLogo({ ...props }: FooterProps) {
         document.body.style.cursor = 'default';
     };
     return (
-        <KonvaStage width={props.width} height={props.height} style={{ border: 'none', backgroundColor: 'grey', height: props.height.toString() + '%', }}>
+        <KonvaStage width={props.width} height={props.height} style={{ border: 'none', backgroundColor: 'grey' }}>
             <Layer>
                 {img && (
                     <Image
