@@ -6,6 +6,7 @@ import Header from '../header/header';
 import { Stage as KonvaStage, Layer, Rect, Image, Text } from 'react-konva';
 import { } from 'react-aria-components';
 import useImageKonva from 'use-image';
+import { useCanvas } from '../../provider/canvas';
 import { BackgroundImage } from './backgroundimage';
 
 interface StageProps {
@@ -14,6 +15,8 @@ interface StageProps {
 }
 
 export default function Stage({ ...props }: StageProps) {
+    const { proportions } = useCanvas();
+    console.log("Height: " + Math.floor(props.height * proportions.header / 100));
     return (
         <div style={{
             width: props.width.toString() + 'px',
@@ -24,10 +27,10 @@ export default function Stage({ ...props }: StageProps) {
             alignItems: 'center',
             justifyContent: 'flex-start',
         }}>
-            <Header />
-            <BackgroundImage width={props.width} height={props.height} />
-            <Description />
-            <FooterLogo width={props.width} height={props.height} />
+            <Header height={proportions.header} />
+            <BackgroundImage width={props.width} height={proportions.image} />
+            <Description height={proportions.description} />
+            <FooterLogo width={props.width} height={proportions.footer} />
         </div>
     );
 }
@@ -48,7 +51,7 @@ function FooterLogo({ ...props }: FooterProps) {
         document.body.style.cursor = 'default';
     };
     return (
-        <KonvaStage width={props.width} height={props.height / 3} style={{ border: 'none', backgroundColor: 'grey' }}>
+        <KonvaStage width={props.width} height={props.height} style={{ border: 'none', backgroundColor: 'grey', height: props.height.toString() + '%', }}>
             <Layer>
                 {img && (
                     <Image
@@ -61,11 +64,4 @@ function FooterLogo({ ...props }: FooterProps) {
             </Layer>
         </KonvaStage>
     );
-}
-
-function extractSrc(img: string | null): CanvasImageSource | undefined {
-    if (img === null || img === undefined) {
-        return undefined;
-    }
-    return useImageKonva(img)[0] || undefined;
 }

@@ -8,6 +8,7 @@ import { useDescriptionText } from '../provider/description';
 import FileUploader from './dropzone/fileuploader';
 import { AddStage } from './addstage';
 import { EditHeader } from './editheader';
+import { ChangeProportions } from './changeproportions';
 
 function EditDescription() {
     const { text, setText } = useDescriptionText();
@@ -17,7 +18,7 @@ function EditDescription() {
 }
 
 export default function Sidebar() {
-    let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer"]));
+    let [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(["global", "style", "background", "footer", "proportion"]));
     return (
         <div style={{ width: '25%', height: '100vh' }}>
             <DisclosureGroup
@@ -47,6 +48,12 @@ export default function Sidebar() {
                     <DisclosureHeader>Footer and Logos </DisclosureHeader>
                     <DisclosurePanel >
                         <FileUploader fileType='footer' />
+                    </DisclosurePanel>
+                </Disclosure>
+                <Disclosure id="proportion" defaultExpanded>
+                    <DisclosureHeader>Proportion</DisclosureHeader>
+                    <DisclosurePanel>
+                        <ChangeProportions />
                     </DisclosurePanel>
                 </Disclosure>
                 <Disclosure id="add-stage" defaultExpanded>

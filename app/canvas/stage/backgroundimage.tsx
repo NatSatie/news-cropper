@@ -25,7 +25,7 @@ export function BackgroundImage({ ...props }: BackgroundImageProps) {
     };
     return (
         // Stage is only allowed to occupy half of the height of the Stage component
-        <KonvaStage width={props.width} height={props.height / 2} style={{ border: 'none', backgroundColor: 'grey' }}>
+        <KonvaStage width={props.width} style={{ border: 'none', backgroundColor: 'grey', height: props.height.toString() + '%', }}>
             <Layer>
                 {img && (
                     <Image

@@ -3,40 +3,24 @@
 import { useHeaderText } from '../../provider/header';
 import { useImage } from '../../provider/image';
 import { useColor } from '../../provider/color';
-import { } from 'react-aria-components';
+import { parseColor } from 'react-aria-components';
 import { Inter, Roboto } from 'next/font/google';
 import { fontOptions } from '../fonthelper';
 
-interface HeaderStyleProps {
-    backgroundColor: string;
-    color: string;
-    fontSize?: number;
-    fontWeight?: string;
-    fontFamily?: string;
-    height?: number;
-};
-
-function HeaderStyle({ ...props }: HeaderStyleProps) {
-    return ({
-        fontSize: '24px',
-        fontWeight: 'bold',
-        backgroundColor: props.backgroundColor,
-        color: props.color,
-        width: '100%',
-        padding: '10px',
-    });
-};
-
-export default function Header() {
+export default function Header({ height }: { height: number }) {
     const { text, fontFamily } = useHeaderText();
     const { backgroundHeaderColor, headerColor } = useColor();
 
     return (
-        <div style={HeaderStyle({
-            backgroundColor: backgroundHeaderColor ? backgroundHeaderColor.toString() : 'white',
-            color: headerColor ? headerColor.toString() : 'black',
-        }
-        )}>
+        <div style={{
+            fontSize: '24px',
+            fontWeight: 'bold',
+            backgroundColor: backgroundHeaderColor.toString(),
+            color: headerColor.toString(),
+            width: '100%',
+            padding: '10px',
+            height: height.toString() + '%',
+        }}>
             <h1 style={{ fontFamily: `var(${fontFamily || '--font-inter'})`, margin: 0 }}>
                 {text}
             </h1>

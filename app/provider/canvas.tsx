@@ -44,10 +44,10 @@ export function CanvasProvider({ children }: CanvasProviderProps) {
         } as SingleStageType
     ],);
     const [proportions, setProportions] = useState<ProportionsType>({
-        header: 0.25,
-        image: 0.25,
-        description: 0.25,
-        footer: 0.25,
+        header: 25,
+        image: 25,
+        description: 25,
+        footer: 25,
     });
 
     return (
