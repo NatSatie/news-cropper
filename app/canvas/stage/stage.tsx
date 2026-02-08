@@ -27,12 +27,17 @@ export default function Stage({ ...props }: StageProps) {
             <Header />
             <BackgroundImage width={props.width} height={props.height} />
             <Description />
-            <FooterLogo />
+            <FooterLogo width={props.width} height={props.height} />
         </div>
     );
 }
 
-function FooterLogo() {
+interface FooterProps {
+    width: number;
+    height: number;
+}
+
+function FooterLogo({ ...props }: FooterProps) {
     const { footer } = useImage();
     const [img] = useImageKonva(footer || '');
     const handleMouseOver = () => {
@@ -43,7 +48,7 @@ function FooterLogo() {
         document.body.style.cursor = 'default';
     };
     return (
-        <KonvaStage width={100} height={100} style={{ border: 'none', backgroundColor: 'white' }}>
+        <KonvaStage width={props.width} height={props.height / 3} style={{ border: 'none', backgroundColor: 'grey' }}>
             <Layer>
                 {img && (
                     <Image
@@ -51,7 +56,6 @@ function FooterLogo() {
                         draggable
                         onMouseEnter={handleMouseOver}
                         onMouseLeave={handleMouseOut}
-                        cornerRadius={20}
                     />
                 )}
             </Layer>

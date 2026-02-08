@@ -10,7 +10,7 @@ export default function Canvas() {
         <div style={{
             width: '75%',
             height: '100%',
-            backgroundColor: 'grey',
+            backgroundColor: '#333333',
             padding: '20px',
             boxSizing: 'content-box',
             display: 'flex',
